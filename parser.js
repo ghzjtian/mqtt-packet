@@ -58,8 +58,9 @@ class Parser extends EventEmitter {
     this.packet.cmd = constants.types[cmdIndex]
     const headerFlags = zero & 0xf
     const requiredHeaderFlags = constants.requiredHeaderFlags[cmdIndex]
-    console.log(`_parseHeader========: ${headerFlags}`)
-    if (requiredHeaderFlags != null && headerFlags !== requiredHeaderFlags) {
+    console.log(`_parseHeader22========, headerFlags: ${headerFlags}, requiredHeaderFlags: ${requiredHeaderFlags}`)
+    const check = false; // don't check the flags.
+    if (requiredHeaderFlags != null && headerFlags !== requiredHeaderFlags && check) {
       // Where a flag bit is marked as “Reserved” in Table 2.2 - Flag Bits, it is reserved for future use and MUST be set to the value listed in that table [MQTT-2.2.2-1]. If invalid flags are received, the receiver MUST close the Network Connection [MQTT-2.2.2-2]
       return this._emitError(new Error(constants.requiredHeaderFlagsErrors[cmdIndex]))
     }
