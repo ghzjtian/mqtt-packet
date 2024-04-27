@@ -489,3 +489,7 @@ License
 -------
 
 MIT
+
+QoS
+
+ISubscriptionGrant

@@ -12,10 +12,11 @@
     "Siarhei Buntsevich (https://github.com/scarry1992)"
   ],
   "scripts": {
+    "custom-echo": "echo 'good'",
     "test": "tape test.js | tap-spec && standard",
     "ci": "tape test.js && node testRandom && standard"
   },
-  "pre-commit": "test",
+  "pre-commit": ["custom-echo", "test"],
   "repository": {
     "type": "git",
     "url": "https://github.com/mqttjs/mqtt-packet.git"
